@@ -27,7 +27,6 @@ import humidityIcon from "../Assets/humidity.png";
 import temperatureIcon from "../Assets/clear.png";
 import windSpeedIcon from "../Assets/wind.png";
 import moment from "moment";
-
 const WeatherApp = () => {
   const [temperature, setTemperature] = useState("Loading...");
   const [humidity, setHumidity] = useState("");
@@ -41,17 +40,15 @@ const WeatherApp = () => {
   const [cloudDescription, setCloudDescription] = useState("");
   const [weeklyForecast, setWeeklyForecast] = useState([]);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [isLoading, setLoading] = useState(true);
 
+  const [isLoading, setLoading] = useState(true);
   const api_key = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
     const handleWindowResize = () => {
       setWindowWidth(window.innerWidth);
     };
-
     window.addEventListener("resize", handleWindowResize);
-
     return () => {
       window.removeEventListener("resize", handleWindowResize);
     };
